@@ -6,12 +6,14 @@ public class ScrollsGUI : MonoBehaviour
     private Color _healthBarColor;
 
     public static Color HealthBarColor;
+
     private void OnGUI()
     {
         _healthBarColor = RGBSlider(new Rect(10, 10, 200, 20), _healthBarColor);
         ScrollsGUI.HealthBarColor = _healthBarColor;
     }
-    Color RGBSlider(Rect screenRect, Color rgb)
+
+    private Color RGBSlider(Rect screenRect, Color rgb)
     {
         rgb.r = LabelSlider(screenRect, rgb.r, 1.0f, "Red");
         screenRect.y += 20;
@@ -22,6 +24,7 @@ public class ScrollsGUI : MonoBehaviour
         rgb.a = LabelSlider(screenRect, rgb.a, 1.0f, "Alpha");
         return rgb;
     }
+
     private float LabelSlider(Rect screenRect, float sliderValue, float sliderMaxValue, string labelText)
     {
         GUI.Label(screenRect, labelText);
